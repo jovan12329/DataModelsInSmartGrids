@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:cim="http://iec.ch/TC57/2010/CIM-schema-cim15#"
+	xmlns:ftn="http://www.ftnydro.com/CIM15/2010/extension#">
+
+
+
+	<cim:Terminal rdf:ID="TERMINAL_1">
+	</cim:Terminal>
+
+    <cim:Terminal rdf:ID="TERMINAL_2">
+	</cim:Terminal>
+
+	<cim:Terminal rdf:ID="TERMINAL_3">
+	</cim:Terminal>
+
+	<cim:Terminal rdf:ID="TERMINAL_4">
+	</cim:Terminal>
+
+
+    <cim:Season rdf:ID="SEASON_1">
+		<cim:Season.endDate>2018-05-26</cim:Season.endDate>
+		<cim:Season.startDate>2018-05-13</cim:Season.startDate>
+	</cim:Season>
+
+
+	<cim:Season rdf:ID="SEASON_2">
+		<cim:Season.endDate>2018-05-26</cim:Season.endDate>
+		<cim:Season.startDate>2018-05-13</cim:Season.startDate>
+	</cim:Season>
+
+
+	<cim:Season rdf:ID="SEASON_3">
+		<cim:Season.endDate>2018-05-26</cim:Season.endDate>
+		<cim:Season.startDate>2018-05-13</cim:Season.startDate>
+	</cim:Season>
+
+
+
+
+	<cim:DayType rdf:ID="DAY_1">
+	</cim:DayType>
+
+    <cim:DayType rdf:ID="DAY_2">
+	</cim:DayType>
+
+
+	<cim:DayType rdf:ID="DAY_3">
+	</cim:DayType>
+
+
+	<cim:DayType rdf:ID="DAY_4">
+	</cim:DayType>
+
+
+
+	<cim:RegulatingControl rdf:ID="REG_1">
+		<cim:RegulatingControl.discrete>false</cim:RegulatingControl.discrete>
+		<cim:RegulatingControl.mode>activePower</cim:RegulatingControl.mode>
+		<cim:RegulatingControl.monitoredPhase>A</cim:RegulatingControl.monitoredPhase>
+		<cim:RegulatingControl.targetRange>12.95</cim:RegulatingControl.targetRange>
+		<cim:RegulatingControl.targetValue>6.5</cim:RegulatingControl.targetValue>
+		<cim:RegulatingControl.Terminal rdf:resource="#TERMINAL_1"/>
+	</cim:RegulatingControl>
+
+	<cim:RegulatingControl rdf:ID="REG_2">
+		<cim:RegulatingControl.discrete>true</cim:RegulatingControl.discrete>
+		<cim:RegulatingControl.mode>activePower</cim:RegulatingControl.mode>
+		<cim:RegulatingControl.monitoredPhase>AB</cim:RegulatingControl.monitoredPhase>
+		<cim:RegulatingControl.targetRange>12.95</cim:RegulatingControl.targetRange>
+		<cim:RegulatingControl.targetValue>4.2</cim:RegulatingControl.targetValue>
+		<cim:RegulatingControl.Terminal rdf:resource="#TERMINAL_1"/>
+	</cim:RegulatingControl>
+
+
+	<cim:RegulatingControl rdf:ID="REG_3">
+		<cim:RegulatingControl.discrete>true</cim:RegulatingControl.discrete>
+		<cim:RegulatingControl.mode>admittance</cim:RegulatingControl.mode>
+		<cim:RegulatingControl.monitoredPhase>BCN</cim:RegulatingControl.monitoredPhase>
+		<cim:RegulatingControl.targetRange>11.02</cim:RegulatingControl.targetRange>
+		<cim:RegulatingControl.targetValue>4.4</cim:RegulatingControl.targetValue>
+		<cim:RegulatingControl.Terminal rdf:resource="#TERMINAL_3"/>
+	</cim:RegulatingControl>
+
+
+
+
+	<cim:AsynchronousMachine rdf:ID="ASYNC_1">
+		<cim:RegulatingCondEq.RegulatingControl rdf:resource="#REG_2"/>
+		<cim:Equipment.aggregate>true</cim:Equipment.aggregate>
+		<cim:Equipment.normallyInService>true</cim:Equipment.normallyInService>
+	</cim:AsynchronousMachine>
+
+
+	<cim:AsynchronousMachine rdf:ID="ASYNC_2">
+		<cim:RegulatingCondEq.RegulatingControl rdf:resource="#REG_2"/>
+		<cim:Equipment.aggregate>false</cim:Equipment.aggregate>
+		<cim:Equipment.normallyInService>true</cim:Equipment.normallyInService>
+	</cim:AsynchronousMachine>
+
+
+
+	<cim:AsynchronousMachine rdf:ID="ASYNC_3">
+		<cim:RegulatingCondEq.RegulatingControl rdf:resource="#REG_1"/>
+		<cim:Equipment.aggregate>true</cim:Equipment.aggregate>
+		<cim:Equipment.normallyInService>false</cim:Equipment.normallyInService>
+	</cim:AsynchronousMachine>
+
+
+	<cim:AsynchronousMachine rdf:ID="ASYNC_4">
+		<cim:RegulatingCondEq.RegulatingControl rdf:resource="#REG_3"/>
+		<cim:Equipment.aggregate>false</cim:Equipment.aggregate>
+		<cim:Equipment.normallyInService>false</cim:Equipment.normallyInService>
+	</cim:AsynchronousMachine>
+
+
+	
+
+
+
+	<cim:RegulationSchedule rdf:ID="REG_SCH_1">
+		<cim:RegulationSchedule.RegulatingControl rdf:resource="#REG_1"/>
+		<cim:SeasonDayTypeSchedule.DayType rdf:resource="#DAY_1"/>
+		<cim:SeasonDayTypeSchedule.Season rdf:resource="#SEASON_1"/>
+		<cim:BasicIntervalSchedule.startTime>2018-05-13</cim:BasicIntervalSchedule.startTime>
+		<cim:BasicIntervalSchedule.value1Multiplier>c</cim:BasicIntervalSchedule.value1Multiplier>
+		<cim:BasicIntervalSchedule.value1Unit>A</cim:BasicIntervalSchedule.value1Unit>
+		<cim:BasicIntervalSchedule.value2Multiplier>G</cim:BasicIntervalSchedule.value2Multiplier>
+		<cim:BasicIntervalSchedule.value2Unit>deg</cim:BasicIntervalSchedule.value2Unit>
+	</cim:RegulationSchedule>
+
+
+
+	<cim:RegulationSchedule rdf:ID="REG_SCH_2">
+		<cim:RegulationSchedule.RegulatingControl rdf:resource="#REG_2"/>
+		<cim:SeasonDayTypeSchedule.DayType rdf:resource="#DAY_2"/>
+		<cim:SeasonDayTypeSchedule.Season rdf:resource="#SEASON_2"/>
+		<cim:BasicIntervalSchedule.startTime>2018-05-13</cim:BasicIntervalSchedule.startTime>
+		<cim:BasicIntervalSchedule.value1Multiplier>d</cim:BasicIntervalSchedule.value1Multiplier>
+		<cim:BasicIntervalSchedule.value1Unit>degC</cim:BasicIntervalSchedule.value1Unit>
+		<cim:BasicIntervalSchedule.value2Multiplier>c</cim:BasicIntervalSchedule.value2Multiplier>
+		<cim:BasicIntervalSchedule.value2Unit>A</cim:BasicIntervalSchedule.value2Unit>
+	</cim:RegulationSchedule>
+
+
+
+	<cim:RegulationSchedule rdf:ID="REG_SCH_3">
+		<cim:RegulationSchedule.RegulatingControl rdf:resource="#REG_3"/>
+		<cim:SeasonDayTypeSchedule.DayType rdf:resource="#DAY_3"/>
+		<cim:SeasonDayTypeSchedule.Season rdf:resource="#SEASON_3"/>
+		<cim:BasicIntervalSchedule.startTime>2018-05-13</cim:BasicIntervalSchedule.startTime>
+		<cim:BasicIntervalSchedule.value1Multiplier>micro</cim:BasicIntervalSchedule.value1Multiplier>
+		<cim:BasicIntervalSchedule.value1Unit>F</cim:BasicIntervalSchedule.value1Unit>
+		<cim:BasicIntervalSchedule.value2Multiplier>m</cim:BasicIntervalSchedule.value2Multiplier>
+		<cim:BasicIntervalSchedule.value2Unit>VAr</cim:BasicIntervalSchedule.value2Unit>
+	</cim:RegulationSchedule>
+
+
+
+</rdf:RDF>
+    
+    
+    

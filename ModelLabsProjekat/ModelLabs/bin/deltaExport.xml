@@ -1,0 +1,165 @@
+﻿<delta id="0">
+  <operations>
+    <operation type="insert">
+      <ResourceDescriptions count="21">
+        <ResourceDescription>
+          <id gid="0x00000001ffffffff" type="TERMINAL" />
+          <Properties />
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000001fffffffe" type="TERMINAL" />
+          <Properties />
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000001fffffffd" type="TERMINAL" />
+          <Properties />
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000001fffffffc" type="TERMINAL" />
+          <Properties />
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000002ffffffff" type="SEASON" />
+          <Properties>
+            <Property id="SEASON_ENDDATE" value="636628896000000000" />
+            <Property id="SEASON_STARTDATE" value="636617664000000000" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000002fffffffe" type="SEASON" />
+          <Properties>
+            <Property id="SEASON_ENDDATE" value="636628896000000000" />
+            <Property id="SEASON_STARTDATE" value="636617664000000000" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000002fffffffd" type="SEASON" />
+          <Properties>
+            <Property id="SEASON_ENDDATE" value="636628896000000000" />
+            <Property id="SEASON_STARTDATE" value="636617664000000000" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000003ffffffff" type="DAYTYPE" />
+          <Properties />
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000003fffffffe" type="DAYTYPE" />
+          <Properties />
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000003fffffffd" type="DAYTYPE" />
+          <Properties />
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000003fffffffc" type="DAYTYPE" />
+          <Properties />
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000004ffffffff" type="REGULATINGCONTROL" />
+          <Properties>
+            <Property id="REGULATINGCONTROL_DISCRETE" value="0" />
+            <Property id="REGULATINGCONTROL_MODE" value="activePower" />
+            <Property id="REGULATINGCONTROL_MONITOREDPHASE" value="A" />
+            <Property id="REGULATINGCONTROL_TARGETRANGE" value="12.95" />
+            <Property id="REGULATINGCONTROL_TARGETVALUE" value="6.5" />
+            <Property id="REGULATINGCONTROL_TERMINAL" value="0x00000001ffffffff" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000004fffffffe" type="REGULATINGCONTROL" />
+          <Properties>
+            <Property id="REGULATINGCONTROL_DISCRETE" value="1" />
+            <Property id="REGULATINGCONTROL_MODE" value="activePower" />
+            <Property id="REGULATINGCONTROL_MONITOREDPHASE" value="AB" />
+            <Property id="REGULATINGCONTROL_TARGETRANGE" value="12.95" />
+            <Property id="REGULATINGCONTROL_TARGETVALUE" value="4.2" />
+            <Property id="REGULATINGCONTROL_TERMINAL" value="0x00000001ffffffff" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000004fffffffd" type="REGULATINGCONTROL" />
+          <Properties>
+            <Property id="REGULATINGCONTROL_DISCRETE" value="1" />
+            <Property id="REGULATINGCONTROL_MODE" value="admittance" />
+            <Property id="REGULATINGCONTROL_MONITOREDPHASE" value="BCN" />
+            <Property id="REGULATINGCONTROL_TARGETRANGE" value="11.02" />
+            <Property id="REGULATINGCONTROL_TARGETVALUE" value="4.4" />
+            <Property id="REGULATINGCONTROL_TERMINAL" value="0x00000001fffffffd" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000005ffffffff" type="ASYNCMACHINE" />
+          <Properties>
+            <Property id="EQUIPMENT_AGGREGATE" value="1" />
+            <Property id="EQUIPMENT_NORMALINSERVICE" value="1" />
+            <Property id="REGULATINGCONDEQ_REGCONTROL" value="0x00000004fffffffe" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000005fffffffe" type="ASYNCMACHINE" />
+          <Properties>
+            <Property id="EQUIPMENT_AGGREGATE" value="0" />
+            <Property id="EQUIPMENT_NORMALINSERVICE" value="1" />
+            <Property id="REGULATINGCONDEQ_REGCONTROL" value="0x00000004fffffffe" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000005fffffffd" type="ASYNCMACHINE" />
+          <Properties>
+            <Property id="EQUIPMENT_AGGREGATE" value="1" />
+            <Property id="EQUIPMENT_NORMALINSERVICE" value="0" />
+            <Property id="REGULATINGCONDEQ_REGCONTROL" value="0x00000004ffffffff" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000005fffffffc" type="ASYNCMACHINE" />
+          <Properties>
+            <Property id="EQUIPMENT_AGGREGATE" value="0" />
+            <Property id="EQUIPMENT_NORMALINSERVICE" value="0" />
+            <Property id="REGULATINGCONDEQ_REGCONTROL" value="0x00000004fffffffd" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000006ffffffff" type="REGULATIONSCHEDULE" />
+          <Properties>
+            <Property id="BASICINTERVALSCHEDULE_STARTTIME" value="636617664000000000" />
+            <Property id="BASICINTERVALSCHEDULE_VALUE1MULTIPL" value="c" />
+            <Property id="BASICINTERVALSCHEDULE_VALUE1UNIT" value="A" />
+            <Property id="BASICINTERVALSCHEDULE_VALUE2MULTIPL" value="G" />
+            <Property id="BASICINTERVALSCHEDULE_VALUE2UNIT" value="deg" />
+            <Property id="SEASONDAYTYPESCHEDULE_SEASON" value="0x00000002ffffffff" />
+            <Property id="SEASONDAYTYPESCHEDULE_DAYTYPE" value="0x00000003ffffffff" />
+            <Property id="REGULATIONSCHEDULE_REGCONTROL" value="0x00000004ffffffff" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000006fffffffe" type="REGULATIONSCHEDULE" />
+          <Properties>
+            <Property id="BASICINTERVALSCHEDULE_STARTTIME" value="636617664000000000" />
+            <Property id="BASICINTERVALSCHEDULE_VALUE1MULTIPL" value="d" />
+            <Property id="BASICINTERVALSCHEDULE_VALUE1UNIT" value="degC" />
+            <Property id="BASICINTERVALSCHEDULE_VALUE2MULTIPL" value="c" />
+            <Property id="BASICINTERVALSCHEDULE_VALUE2UNIT" value="A" />
+            <Property id="SEASONDAYTYPESCHEDULE_SEASON" value="0x00000002fffffffe" />
+            <Property id="SEASONDAYTYPESCHEDULE_DAYTYPE" value="0x00000003fffffffe" />
+            <Property id="REGULATIONSCHEDULE_REGCONTROL" value="0x00000004fffffffe" />
+          </Properties>
+        </ResourceDescription>
+        <ResourceDescription>
+          <id gid="0x00000006fffffffd" type="REGULATIONSCHEDULE" />
+          <Properties>
+            <Property id="BASICINTERVALSCHEDULE_STARTTIME" value="636617664000000000" />
+            <Property id="BASICINTERVALSCHEDULE_VALUE1MULTIPL" value="micro" />
+            <Property id="BASICINTERVALSCHEDULE_VALUE1UNIT" value="F" />
+            <Property id="BASICINTERVALSCHEDULE_VALUE2MULTIPL" value="m" />
+            <Property id="BASICINTERVALSCHEDULE_VALUE2UNIT" value="VAr" />
+            <Property id="SEASONDAYTYPESCHEDULE_SEASON" value="0x00000002fffffffd" />
+            <Property id="SEASONDAYTYPESCHEDULE_DAYTYPE" value="0x00000003fffffffd" />
+            <Property id="REGULATIONSCHEDULE_REGCONTROL" value="0x00000004fffffffd" />
+          </Properties>
+        </ResourceDescription>
+      </ResourceDescriptions>
+    </operation>
+  </operations>
+</delta>
