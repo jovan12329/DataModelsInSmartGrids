@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace NetworkModelClient
 {
@@ -51,7 +52,7 @@ namespace NetworkModelClient
             {
                 ModelCode m = modelResourcesDesc.GetModelCodeFromType(type);
                 ids.AddRange(GetExtentValues(m));
-                
+
             }
 
             foreach (var e in ids) {
@@ -81,11 +82,33 @@ namespace NetworkModelClient
 
 
             return mcs;
-        
+
         }
 
+
+        public IList<ModelCode> GetRelatedDMSForRelatedQuery(long gid) 
+        {
+
+            ResourceDescription rd = GetValues(gid);
+            List<ModelCode> relatedModels = new List<ModelCode>();
             
 
+            foreach (var p in rd.Properties)
+            {
+                if (p.Type == PropertyType.Reference || p.Type == PropertyType.ReferenceVector)
+                {
+
+                    relatedModels.Add(p.Id);
+
+                }
+
+            }
+
+
+            return relatedModels;
+            
+        }
+    
 
 
         public IList<ModelCode> GetModelCodesForSelectedGid(long gid) {
@@ -281,6 +304,65 @@ namespace NetworkModelClient
 
             return ids;
         }
+
+
+        public List<long> MyGetRelatedValues(long sourceGlobalId,List<ModelCode> mds , Association association,out List<ResourceDescription> rdds)
+        {
+            string message = "Getting related values method started.";
+            Console.WriteLine(message);
+            CommonTrace.WriteTrace(CommonTrace.TraceError, message);
+
+            List<long> resultIds = new List<long>();
+            rdds= new List<ResourceDescription>();
+
+
+            int numberOfResources = 2;
+
+            try
+            {
+                List<ModelCode> properties = new List<ModelCode>();
+                properties.AddRange(mds);
+
+                int iteratorId = GdaQueryProxy.GetRelatedValues(sourceGlobalId, properties, association);
+                int resourcesLeft = GdaQueryProxy.IteratorResourcesLeft(iteratorId);
+
+
+
+                while (resourcesLeft > 0)
+                {
+                    List<ResourceDescription> rds = GdaQueryProxy.IteratorNext(numberOfResources, iteratorId);
+
+                    for (int i = 0; i < rds.Count; i++)
+                    {
+                        resultIds.Add(rds[i].Id);
+
+                    }
+                    rdds.AddRange(rds);
+
+                    resourcesLeft = GdaQueryProxy.IteratorResourcesLeft(iteratorId);
+                }
+
+                GdaQueryProxy.IteratorClose(iteratorId);
+
+                message = "Getting related values method successfully finished.";
+                Console.WriteLine(message);
+                CommonTrace.WriteTrace(CommonTrace.TraceError, message);
+            }
+            catch (Exception e)
+            {
+                message = string.Format("Getting related values method  failed for sourceGlobalId = {0} and association (propertyId = {1}, type = {2}). Reason: {3}", sourceGlobalId, association.PropertyId, association.Type, e.Message);
+                Console.WriteLine(message);
+                CommonTrace.WriteTrace(CommonTrace.TraceError, message);
+            }
+            finally
+            {
+
+            }
+
+            return resultIds;
+        }
+
+
 
         public List<long> GetRelatedValues(long sourceGlobalId, Association association)
         {

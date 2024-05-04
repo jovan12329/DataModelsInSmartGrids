@@ -26,29 +26,34 @@ namespace NetworkModelClient
     {
         private ClientGda client = new ClientGda();
         private EnumDescs enumDescs = new EnumDescs();
+        private ModelResourcesDesc descM = new ModelResourcesDesc();
+        private IList<string> Gids { get; set; }
+
 
         public MainWindow()
         {
             InitializeComponent();
-            gidBox.ItemsSource = client.ServerGids();
+            Gids = client.ServerGids();
+            gidBox.ItemsSource = Gids;
+            relatedGidBox.ItemsSource = Gids;
             modelBox.ItemsSource = client.GetConcreteModelCodes();
             DataContext = this;
         }
 
         private void gidBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-          
-            
-            var num=(string)gidBox.SelectedItem;
+
+
+            var num = (string)gidBox.SelectedItem;
 
 
             num = num.Remove(0, 2);
 
-            var gid=Int64.Parse(num, System.Globalization.NumberStyles.HexNumber);
-            
+            var gid = Int64.Parse(num, System.Globalization.NumberStyles.HexNumber);
+
             modelCodeBox.ItemsSource = client.GetModelCodesForSelectedGid(gid);
 
-            
+
 
 
         }
@@ -60,6 +65,112 @@ namespace NetworkModelClient
             var num = (ModelCode)modelBox.SelectedItem;
 
             modelCodePropBox.ItemsSource = client.GetConcreteMCProperties(num);
+
+
+
+        }
+
+        private void relatedGidBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            var num = (string)relatedGidBox.SelectedItem;
+
+            num = num.Remove(0, 2);
+
+            var gid = Int64.Parse(num, System.Globalization.NumberStyles.HexNumber);
+
+
+            List<ModelCode> mdcs = client.GetRelatedDMSForRelatedQuery(gid).ToList();
+
+
+            comboRelated.ItemsSource= mdcs;
+            comboRelated.SelectedIndex = -1;
+            propIdsRelated.ItemsSource = null;
+                
+            
+
+
+        }
+
+        private void comboRelated_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            var modelReference = comboRelated.SelectedItem;
+
+            if (modelReference == null) 
+            {
+
+                return;
+            
+            }
+
+            var modelReference1 = (ModelCode)modelReference;
+
+            switch (modelReference1) 
+            {
+
+                case ModelCode.REGULATINGCONDEQ_REGCONTROL:
+
+                    propIdsRelated.ItemsSource=descM.GetAllPropertyIds(ModelCode.REGULATINGCONTROL);
+
+                    break;
+
+                case ModelCode.REGULATINGCONTROL_REGCONDEQS:
+
+                    propIdsRelated.ItemsSource = descM.GetAllPropertyIds(ModelCode.REGULATINGCONDEQ);
+
+                    break;
+                case ModelCode.REGULATINGCONTROL_TERMINAL:
+
+                    propIdsRelated.ItemsSource = descM.GetAllPropertyIds(ModelCode.TERMINAL);
+
+                    break;
+                case ModelCode.REGULATINGCONTROL_REGSCHEDULERS:
+
+                    propIdsRelated.ItemsSource = descM.GetAllPropertyIds(ModelCode.REGULATIONSCHEDULE);
+
+                    break;
+                case ModelCode.TERMINAL_REGCONTROLS:
+
+                    propIdsRelated.ItemsSource = descM.GetAllPropertyIds(ModelCode.REGULATINGCONTROL);
+
+                    break;
+                case ModelCode.DAYTYPE_SEASONDAYSCHEDS:
+
+                    propIdsRelated.ItemsSource = descM.GetAllPropertyIds(ModelCode.SEASONDAYTYPESCHEDULE);
+
+                    break;
+
+                case ModelCode.SEASON_SEASONDAYSCHEDS:
+
+                    propIdsRelated.ItemsSource = descM.GetAllPropertyIds(ModelCode.SEASONDAYTYPESCHEDULE);
+
+                    break;
+                case ModelCode.SEASONDAYTYPESCHEDULE_SEASON:
+
+                    propIdsRelated.ItemsSource = descM.GetAllPropertyIds(ModelCode.SEASON);
+
+                    break;
+
+                case ModelCode.SEASONDAYTYPESCHEDULE_DAYTYPE:
+
+                    propIdsRelated.ItemsSource = descM.GetAllPropertyIds(ModelCode.DAYTYPE);
+
+                    break;
+                case ModelCode.REGULATIONSCHEDULE_REGCONTROL:
+
+                    propIdsRelated.ItemsSource = descM.GetAllPropertyIds(ModelCode.REGULATINGCONTROL);
+
+                    break;
+
+                default:
+
+                    MessageBox.Show("Noting to show!");
+                    break;
+
+            }
+
+
 
 
 
@@ -113,7 +224,7 @@ namespace NetworkModelClient
 
             if (selectedModelCode == null)
             {
-                MessageBox.Show("Please choose GID !");
+                MessageBox.Show("Please choose Model Code !");
                 return;
             }
 
@@ -151,6 +262,75 @@ namespace NetworkModelClient
             
 
 
+        }
+
+        private void GetRelatedValues_Click(object sender, RoutedEventArgs e)
+        {
+
+            var selectedGid = relatedGidBox.SelectedItem;
+            var selectedRef = comboRelated.SelectedItem;
+            var selectedProps = propIdsRelated.SelectedItems;
+
+
+            if (selectedGid == null)
+            {
+                MessageBox.Show("Please choose GID !");
+                return;
+            }
+
+            if (selectedRef == null) 
+            {
+
+                MessageBox.Show("Please choose reference!");
+                return;
+            
+            }
+
+            if (selectedProps == null || selectedProps.Count == 0)
+            {
+                MessageBox.Show("Please choose properties !");
+                return;
+            }
+
+            string gid = (string)selectedGid;
+            ModelCode selectedref1 = (ModelCode)selectedRef;
+            var myGid= gid.Remove(0, 2);
+
+
+            var gid1 = Int64.Parse(myGid, System.Globalization.NumberStyles.HexNumber);
+
+            
+
+
+            IList<ModelCode> props = CastModelCode(selectedProps);
+
+            List<ResourceDescription> chosenRsource = null;
+            Association a = new Association();
+            a.Type = 0;
+            a.PropertyId = selectedref1;
+
+            
+
+            client.MyGetRelatedValues(gid1,props.ToList(), a, out chosenRsource);
+
+            if (chosenRsource.Count == 0)
+            {
+
+                displayRelated.Text = "No resources found!";
+                return;
+            }
+
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var d in chosenRsource)
+            {
+
+                sb.AppendLine(DisplayResource(d)).AppendLine();
+
+            }
+
+            displayRelated.Text = sb.ToString();
+
 
 
 
@@ -158,10 +338,11 @@ namespace NetworkModelClient
         }
 
 
-
-
         #region Utilities
-        public string DisplayResource(ResourceDescription rd) {
+
+
+       
+        private string DisplayResource(ResourceDescription rd) {
 
             StringBuilder sb = new StringBuilder();
 
@@ -245,7 +426,7 @@ namespace NetworkModelClient
 
 
 
-        public IList<ModelCode> CastModelCode(object toCast) {
+        private IList<ModelCode> CastModelCode(object toCast) {
 
             List<ModelCode> mds = new List<ModelCode>();
 
@@ -263,7 +444,11 @@ namespace NetworkModelClient
         
         }
 
+
+
+
         #endregion
 
+        
     }
 }

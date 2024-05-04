@@ -7,16 +7,12 @@
       "RelativeMoniker": "D:0:0:{4846EED2-61B1-4C4D-B13B-376475650707}|NetworkModelClient\\NetworkModelClient.csproj|solutionrelative:networkmodelclient\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4846EED2-61B1-4C4D-B13B-376475650707}|NetworkModelClient\\NetworkModelClient.csproj|C:\\Users\\Jovan\\Desktop\\ModelLabsProjekat\\ModelLabs\\networkmodelclient\\clientgda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4846EED2-61B1-4C4D-B13B-376475650707}|NetworkModelClient\\NetworkModelClient.csproj|solutionrelative:networkmodelclient\\clientgda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{32EE9373-A350-42AC-972B-41B2EDABA082}|NetworkModelService\\Test\\NMSTestClient\\NMSTestClient.csproj|c:\\users\\jovan\\desktop\\modellabsprojekat\\modellabs\\networkmodelservice\\test\\nmstestclient\\testgda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32EE9373-A350-42AC-972B-41B2EDABA082}|NetworkModelService\\Test\\NMSTestClient\\NMSTestClient.csproj|solutionrelative:networkmodelservice\\test\\nmstestclient\\testgda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{4846EED2-61B1-4C4D-B13B-376475650707}|NetworkModelClient\\NetworkModelClient.csproj|c:\\users\\jovan\\desktop\\modellabsprojekat\\modellabs\\networkmodelclient\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{4846EED2-61B1-4C4D-B13B-376475650707}|NetworkModelClient\\NetworkModelClient.csproj|solutionrelative:networkmodelclient\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4846EED2-61B1-4C4D-B13B-376475650707}|NetworkModelClient\\NetworkModelClient.csproj|C:\\Users\\Jovan\\Desktop\\ModelLabsProjekat\\ModelLabs\\networkmodelclient\\clientgda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4846EED2-61B1-4C4D-B13B-376475650707}|NetworkModelClient\\NetworkModelClient.csproj|solutionrelative:networkmodelclient\\clientgda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,30 +22,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "TestGda.cs",
-              "DocumentMoniker": "C:\\Users\\Jovan\\Desktop\\ModelLabsProjekat\\ModelLabs\\NetworkModelService\\Test\\NMSTestClient\\TestGda.cs",
-              "RelativeDocumentMoniker": "NetworkModelService\\Test\\NMSTestClient\\TestGda.cs",
-              "ToolTip": "C:\\Users\\Jovan\\Desktop\\ModelLabsProjekat\\ModelLabs\\NetworkModelService\\Test\\NMSTestClient\\TestGda.cs",
-              "RelativeToolTip": "NetworkModelService\\Test\\NMSTestClient\\TestGda.cs",
-              "ViewState": "AQIAADIAAAAAAAAAAAAgwEEAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-02T19:01:33.174Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "ClientGDA.cs",
               "DocumentMoniker": "C:\\Users\\Jovan\\Desktop\\ModelLabsProjekat\\ModelLabs\\NetworkModelClient\\ClientGDA.cs",
               "RelativeDocumentMoniker": "NetworkModelClient\\ClientGDA.cs",
               "ToolTip": "C:\\Users\\Jovan\\Desktop\\ModelLabsProjekat\\ModelLabs\\NetworkModelClient\\ClientGDA.cs",
               "RelativeToolTip": "NetworkModelClient\\ClientGDA.cs",
-              "ViewState": "AQIAAIoAAAAAAAAAAAAowKsAAAAAAAAA",
+              "ViewState": "AQIAAEsBAAAAAAAAAAAuwEMBAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-02T18:02:51.661Z",
               "EditorCaption": ""
@@ -62,14 +45,14 @@
               "RelativeDocumentMoniker": "NetworkModelClient\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Jovan\\Desktop\\ModelLabsProjekat\\ModelLabs\\NetworkModelClient\\MainWindow.xaml.cs",
               "RelativeToolTip": "NetworkModelClient\\MainWindow.xaml.cs",
-              "ViewState": "AQIAAMkAAAAAAAAAAAAmwNoAAABvAAAA",
+              "ViewState": "AQIAAC0BAAAAAAAAAAAuwEABAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-02T18:02:48.696Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Jovan\\Desktop\\ModelLabsProjekat\\ModelLabs\\NetworkModelClient\\MainWindow.xaml",
               "RelativeDocumentMoniker": "NetworkModelClient\\MainWindow.xaml",

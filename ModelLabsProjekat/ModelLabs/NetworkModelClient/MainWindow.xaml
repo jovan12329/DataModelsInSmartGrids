@@ -14,7 +14,7 @@
 
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock>GetValues</TextBlock>
+                        <TextBlock>Get values</TextBlock>
                     </StackPanel>
                 </TabItem.Header>
 
@@ -206,6 +206,135 @@
                         <TextBlock>Get related values</TextBlock>
                     </StackPanel>
                 </TabItem.Header>
+
+
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="8*"/>
+
+                    </Grid.RowDefinitions>
+
+
+                    <Label Content="Available GID(s):"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontWeight="Bold"/>
+
+                    <ListBox
+                            Grid.Row="1"
+                            Margin="10"
+                            Name="relatedGidBox"
+                            SelectionChanged="relatedGidBox_SelectionChanged">
+                    </ListBox>
+
+                    <Label
+                        Grid.Column="1"
+                        Content="Choose reference(s):"
+                        FontWeight="Bold"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        />
+
+
+                    <Grid
+                        Grid.Column="1"
+                        Grid.Row="1">
+
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="2*"/>
+                            
+                            
+
+                        </Grid.RowDefinitions>
+
+
+                        <ListBox
+                            Margin="10"
+                            Name="comboRelated"
+                            SelectionChanged="comboRelated_SelectionChanged"
+                            />
+
+
+                        <Label
+                            Grid.Row="1"
+                            Content="Choose properties you want:"
+                            FontWeight="Bold"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            Margin="0 5 0 0"
+                            />
+
+                        
+
+
+                        <ListBox
+                            Grid.Row="1"
+                            Margin="10 40 10 40"
+                            Name="propIdsRelated"
+                            SelectionMode="Multiple"
+                            >
+                        </ListBox>
+
+
+                        <Button x:Name="GetRelatedValues"
+                                Content="Get Related Values"
+                                FontWeight="Bold"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                VerticalAlignment="Bottom"
+                                Margin="5 0 5 10"
+                                Click="GetRelatedValues_Click"
+                                />
+
+
+
+
+
+                    </Grid>
+
+
+
+                    <Label Content="Display:"
+                           Grid.Column="2"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontWeight="Bold"/>
+
+
+                    <TextBox
+                            Name="displayRelated"
+                            IsReadOnly="True"
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Margin="5"
+                            ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                            ScrollViewer.VerticalScrollBarVisibility="Auto"
+                            ScrollViewer.CanContentScroll="True"/>
+
+
+
+
+
+                </Grid>
+
+
+
+
+
             </TabItem>
         </TabControl>
 
